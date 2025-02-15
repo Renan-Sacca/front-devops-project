@@ -11,10 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm ci && npm run build
+      - run: |
+              cd fronticoma
+              npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_UNIMAR_START_DEVOPS_811EC }}
+          firebaseServiceAccount: ${{  secrets.FIREBASE_SERVICE_ACCOUNT_UNIMAR_START_DEVOPS_811EC }}
           channelId: live
           projectId: unimar-start-devops-811ec
